@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Main page</title>
+</head>
+<body>
+<div>
+    <form method="post">
+        <input type="text" name="name" placeholder="Введите имя">
+        <input type="text" name="surname" placeholder="Введите фамилию">
+        <input type="text" name="mid_name" placeholder="Введите отчество">
+        <button type="submit">Добавить</button>
+    </form>
+</div>
+<div>Список людей</div>
+{{#peoples}}
+<div>
+    <b>{{name}}</b>
+    <span>{{surname}}</span>
+    <i>{{mid_name}}</i>
+</div>
+</body>
+</html>
