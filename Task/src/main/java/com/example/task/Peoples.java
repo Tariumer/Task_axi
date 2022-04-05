@@ -1,18 +1,17 @@
 package com.example.task;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
+@Table (name="people")
 public class Peoples {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    private String name,surname,mid_name;
-
+    private String name;
+    private String surname;
+    private String mid_name;
     public Peoples() {
     }
 

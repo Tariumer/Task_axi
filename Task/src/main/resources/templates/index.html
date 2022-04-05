@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -6,7 +7,7 @@
 </head>
 <body>
 <div>
-    <form method="post">
+    <form method="POST" action="/">
         <input type="text" name="name" placeholder="Введите имя">
         <input type="text" name="surname" placeholder="Введите фамилию">
         <input type="text" name="mid_name" placeholder="Введите отчество">
@@ -14,7 +15,13 @@
     </form>
 </div>
 <div>Список людей</div>
-{{#peoples}}
+<table>
+    <tr th:each="peopleinfo : $(peopleinfos)">
+        <td th:utext="$(peopleinfo.name)">..</td>
+        <td th:utext="$(peopleinfo.surname)">..</td>
+        <td th:utext="$(peopleinfo.mid_name)">..</td>
+    </tr>
+</table>
 <div>
     <b>{{name}}</b>
     <span>{{surname}}</span>
