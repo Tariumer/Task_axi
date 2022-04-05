@@ -7,7 +7,10 @@
 </head>
 <body>
 <div>
-    <form method="POST" action="/">
+    <form action="/add">
+        <button type="submit">Добавление</button>
+    </form>
+    <form method="POST" action="/add">
         <input type="text" name="name" placeholder="Введите имя">
         <input type="text" name="surname" placeholder="Введите фамилию">
         <input type="text" name="mid_name" placeholder="Введите отчество">
@@ -16,16 +19,11 @@
 </div>
 <div>Список людей</div>
 <table>
-    <tr th:each="peopleinfo : $(peopleinfos)">
-        <td th:utext="$(peopleinfo.name)">..</td>
-        <td th:utext="$(peopleinfo.surname)">..</td>
-        <td th:utext="$(peopleinfo.mid_name)">..</td>
+    <tr th:each="peopleinfo : ${peopleinfos}">
+        <td th:text="${peopleinfo.getName()}">
+        <td th:text="${peopleinfo.getSurname()}">
+        <td th:text="${peopleinfo.getMid_name()}">
     </tr>
 </table>
-<div>
-    <b>{{name}}</b>
-    <span>{{surname}}</span>
-    <i>{{mid_name}}</i>
-</div>
 </body>
 </html>

@@ -11,8 +11,6 @@ public class TaskApplication {
 
     public static void main(String[] args) throws SQLException
     {
-
-        PeopleService peopleService=new PeopleService();;
         SpringApplication.run(TaskApplication.class, args);
     }
 }
