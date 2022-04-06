@@ -7,23 +7,22 @@
 </head>
 <body>
 <div>
-    <form action="/add">
-        <button type="submit">Добавление</button>
-    </form>
-    <form method="POST" action="/add">
-        <input type="text" name="name" placeholder="Введите имя">
-        <input type="text" name="surname" placeholder="Введите фамилию">
-        <input type="text" name="mid_name" placeholder="Введите отчество">
-        <button type="submit">Добавить</button>
-    </form>
+    <table>
+        <tr>
+            <td>
+                <form action="/add">
+                    <button type="submit">Добавление</button>
+                </form>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <form action="/displayAll">
+                    <button type="submit">Показать всех клиентов</button>
+                </form>
+            </td>
+        </tr>
+    </table>
 </div>
-<div>Список людей</div>
-<table>
-    <tr th:each="peopleinfo : ${peopleinfos}">
-        <td th:text="${peopleinfo.getName()}">
-        <td th:text="${peopleinfo.getSurname()}">
-        <td th:text="${peopleinfo.getMid_name()}">
-    </tr>
-</table>
 </body>
 </html>
