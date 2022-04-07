@@ -65,8 +65,8 @@
         <td th:text="${date}">
     </tr>
 </table>
-    <form method="POST" action="/accept">
-        <input type="hidden" value="${people.getId()}" name="CurrId">
+    <form action="/accepting" method="post">
+        <input type="number" name="id" th:value="*{people.getId()}" hidden="true"/>
         <input type="submit" value="Подписать" />
 <!--        <button type="submit">Подписать</button>-->
     </form>

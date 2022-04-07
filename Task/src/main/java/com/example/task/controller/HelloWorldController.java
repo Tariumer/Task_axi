@@ -56,16 +56,17 @@ public class HelloWorldController {
     }
 
     @GetMapping(value = "/accept")
-    public String accept(@RequestParam() Integer id){
+    public String acceptss(@RequestParam Integer id,Model model){
+        System.out.print(id);
         System.out.print("Done");
         return "/accept";
     }
 
-    @PostMapping(value = "/accept")
-    public String accep(@RequestParam Peoples people){
+    @PostMapping(value = "/accepting")
+    public String accep(@RequestParam Integer id,Model model){
+        System.out.print(id);
         System.out.print("Done");
-//        System.out.println(id);
-        return "/accept";
+        return "/ts";
     }
 
     @PostMapping(value = "/add")
