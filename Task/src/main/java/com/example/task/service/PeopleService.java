@@ -2,9 +2,11 @@ package com.example.task.service;
 
 import com.example.task.dao.PeopleDao;
 import com.example.task.Peoples;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Service
 public class PeopleService {
 
     public PeopleDao peopleDao=new PeopleDao();

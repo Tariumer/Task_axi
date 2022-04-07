@@ -1,6 +1,7 @@
 package com.example.task;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table (name="people")
@@ -20,6 +21,13 @@ public class Peoples {
     private String post;
     private Integer work_time;
     private Integer credit_sum;
+
+//    @OneToMany(mappedBy = "people",cascade = CascadeType.ALL,orphanRemoval = true)
+    @OneToOne(orphanRemoval = true)
+    @JoinColumn(name = "credit_id",referencedColumnName = "id")
+    private Credit_requests credit_requests;
+//    private List<Credit_requests> requests;
+
     public Peoples() {
     }
 
@@ -37,6 +45,9 @@ public class Peoples {
         this.credit_sum = credit_sum;
     }
 
+    public Integer getId(){
+        return id;
+    }
 
     public String getPassport() {
         return passport;
@@ -124,5 +135,26 @@ public class Peoples {
 
     public void setMid_name(String mid_name) {
         this.mid_name = mid_name;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public Credit_requests getCredit_requests() {
+        return credit_requests;
+    }
+    public String getCreditStat(){
+        Credit_requests creditRequests=getCredit_requests();
+        if(creditRequests.getDecision())
+        {
+            return "Одобрено";
+        }
+        else
+            return "Отклонено";
+    }
+
+    public void setCredit_requests(Credit_requests credit_requests) {
+        this.credit_requests = credit_requests;
     }
 }

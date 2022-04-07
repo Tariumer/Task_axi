@@ -1,1 +1,79 @@
-1
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Принятие кредита</title>
+</head>
+<body th:with="people=${peopleinfo},credit=${credit_request},date=${date}">
+    <h2>Ваша заявка на кредит одобрена</h2>
+<table border="1">
+    <tr>
+        <th>Имя</th>
+        <td th:text="${people.getName()}">
+    </tr>
+    <tr>
+        <th>Фамилия</th>
+        <td th:text="${people.getSurname()}">
+    </tr>
+    <tr>
+        <th>Отчество</th>
+        <td th:text="${people.getMid_name()}">
+    </tr>
+    <tr>
+        <th>Пасспортные данные</th>
+        <td th:text="${people.getPassport()}">
+    </tr>
+    <tr>
+        <th>Семейное положение</th>
+        <td th:text="${people.getFamily_status()}">
+    </tr>
+    <tr>
+        <th>Адресс прописки</th>
+        <td th:text="${people.getAddress()}">
+    </tr>
+    <tr>
+        <th>Контактные телефон</th>
+        <td th:text="${people.getNumber()}">
+    </tr>
+    <tr>
+        <th>Название организации</th>
+        <td th:text="${people.getOrganization()}">
+    </tr>
+    <tr>
+        <th>Занимаемая должность</th>
+        <td th:text="${people.getPost()}">
+    </tr>
+    <tr>
+        <th>Период работы</th>
+        <td th:text="${people.getWork_time()}">
+    </tr>
+    <tr>
+        <th>Желаемая сумма кредита</th>
+        <td th:text="${people.getCredit_sum()}">
+    </tr>
+    <tr>
+        <th>Одобренная сумма кредита</th>
+        <td th:text="${credit.getCredit()}">
+    </tr>
+    <tr>
+        <th>Срок для кредита</th>
+        <td th:text="${credit.getTime() + ' месяцев'}">
+    </tr>
+    <tr>
+        <th>Текущая дата</th>
+        <td th:text="${date}">
+    </tr>
+</table>
+    <form method="POST" action="/accept">
+        <input type="hidden" value="${people.getId()}" name="CurrId">
+        <input type="submit" value="Подписать" />
+<!--        <button type="submit">Подписать</button>-->
+    </form>
+    <form method="POST" action="/accepting">
+        <button type="submit">Отказаться</button>
+    </form>
+    <input type="hidden" value="${people.getId()}" name="CurrentDelete">
+    <input type="submit" value="Подписать" />
+</body>
+</html>

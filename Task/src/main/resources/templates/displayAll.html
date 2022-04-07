@@ -15,6 +15,7 @@
         <th>Должность</th>
         <th>Период работы</th>
         <th>Сумма желаемого кредита</th>
+        <th>Статус заявки</th>
     </tr>
     <tr th:each="peopleinfo : ${peopleinfos}">
         <td th:text="${peopleinfo.getName()}">
@@ -28,5 +29,6 @@
         <td th:text="${peopleinfo.getPost()}">
         <td th:text="${peopleinfo.getWork_time()}">
         <td th:text="${peopleinfo.getCredit_sum()}">
+        <td th:text="${peopleinfo.getCreditStat()}">
     </tr>
 </table>
