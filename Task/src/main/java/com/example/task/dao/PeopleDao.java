@@ -44,7 +44,7 @@ public class PeopleDao {
         return HibernateSessionFactoryUtil.getSessionFactory().openSession().get(Peoples.class, name);
     }
     public List<Peoples> findByPassport () {
-        Query query= HibernateSessionFactoryUtil.getSessionFactory().openSession().createSQLQuery("select p.passport,p.id,p.name,p.surname,p.mid_name,p.address,p.passport,p.family_status,p.number,p.organization,p.post,p.work_time,p.credit_sum,p.credit_id from People p").addEntity(Peoples.class);
+        Query query= HibernateSessionFactoryUtil.getSessionFactory().openSession().createSQLQuery("select distinct on (p.passport) p.id,p.name,p.surname,p.mid_name,p.address,p.family_status,p.number,p.organization,p.post,p.work_time,p.credit_sum,p.credit_id from People p").addEntity(Peoples.class);
         List<Peoples> peoples= (List<Peoples>) query.getResultList();
         return peoples;
     }
