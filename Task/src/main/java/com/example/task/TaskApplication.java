@@ -1,7 +1,5 @@
 package com.example.task;
 
-import com.example.task.Peoples;
-import com.example.task.service.PeopleService;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import java.sql.SQLException;

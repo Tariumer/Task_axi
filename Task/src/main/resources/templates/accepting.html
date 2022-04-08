@@ -68,12 +68,9 @@
     <form action="/accepting" method="post">
         <input type="number" name="id" th:value="*{people.getId()}" hidden="true"/>
         <input type="submit" value="Подписать" />
-<!--        <button type="submit">Подписать</button>-->
     </form>
-    <form method="POST" action="/accepting">
+    <form method="GET" action="/index">
         <button type="submit">Отказаться</button>
     </form>
-    <input type="hidden" value="${people.getId()}" name="CurrentDelete">
-    <input type="submit" value="Подписать" />
 </body>
 </html>

@@ -1,0 +1,44 @@
+<head>
+    <meta charset="UTF-8">
+    <title>Список подписанных договоров</title>
+</head>
+<form method="GET" action="/index">
+    <button type="submit">Назад</button>
+</form>
+<div>Список подписанных договоров</div>
+<table border="1" >
+    <tr>
+        <th>Имя</th>
+        <th>Фамилия</th>
+        <th>Отчество</th>
+        <th>Пасспортные данные</th>
+        <th>Семейное положение</th>
+        <th>Адрес прописки</th>
+        <th>Контактный телефон</th>
+        <th>Название организации</th>
+        <th>Должность</th>
+        <th>Период работы</th>
+        <th>Сумма желаемого кредита</th>
+        <th>Статус заявки</th>
+        <th>Срок выдачи кредита</th>
+        <th>Сумма кредита</th>
+        <th>Дата подписания</th>
+    </tr>
+    <tr th:each="peopleinfo : ${peopleinfos}">
+        <td th:text="${peopleinfo.getName()}">
+        <td th:text="${peopleinfo.getSurname()}">
+        <td th:text="${peopleinfo.getMid_name()}">
+        <td th:text="${peopleinfo.getPassport()}">
+        <td th:text="${peopleinfo.getFamily_status()}">
+        <td th:text="${peopleinfo.getAddress()}">
+        <td th:text="${peopleinfo.getNumber()}">
+        <td th:text="${peopleinfo.getOrganization()}">
+        <td th:text="${peopleinfo.getPost()}">
+        <td th:text="${peopleinfo.getWork_time()}">
+        <td th:text="${peopleinfo.getCredit_sum()}">
+        <td th:text="${peopleinfo.getCreditStat()}">
+        <td th:text="${peopleinfo.getCreditRequests().getTime()}">
+        <td th:text="${peopleinfo.getCreditRequests().getCredit()}">
+        <td th:text="${peopleinfo.getCreditRequests().getDate()}">
+    </tr>
+</table>

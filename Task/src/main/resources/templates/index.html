@@ -3,7 +3,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Main page</title>
+    <title>Меню</title>
 </head>
 <body>
 <div>
@@ -11,7 +11,14 @@
         <tr>
             <td>
                 <form action="/add">
-                    <button type="submit">Добавление</button>
+                    <button type="submit">Создание заявки</button>
+                </form>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <form action="/creditRequests">
+                    <button type="submit">Показать все заявки</button>
                 </form>
             </td>
         </tr>
@@ -19,6 +26,20 @@
             <td>
                 <form action="/displayAll">
                     <button type="submit">Показать всех клиентов</button>
+                </form>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <form action="/displayAllContracts">
+                    <button type="submit">Показать подписанные кредитные договора</button>
+                </form>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <form action="/search">
+                    <button type="submit">Найти клиента по ФИО, номеру телефона и пасспортным данным</button>
                 </form>
             </td>
         </tr>

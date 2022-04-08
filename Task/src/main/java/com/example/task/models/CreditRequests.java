@@ -1,4 +1,4 @@
-package com.example.task;
+package com.example.task.models;
 
 import javax.persistence.*;
 import javax.persistence.criteria.CriteriaBuilder;
@@ -6,7 +6,7 @@ import java.util.Date;
 
 @Entity
 @Table(name = "decisions")
-public class Credit_requests {
+public class CreditRequests {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -19,17 +19,17 @@ public class Credit_requests {
     private Boolean status;
 
 
-    public Credit_requests(Boolean decision, Integer time, Integer credit, Boolean status) {
+    public CreditRequests(Boolean decision, Integer time, Integer credit, Boolean status) {
         this.decision = decision;
         this.time = time;
         this.credit = credit;
         this.status = status;
     }
 
-    public Credit_requests() {
+    public CreditRequests() {
     }
 
-    public Credit_requests(Boolean decision) {
+    public CreditRequests(Boolean decision) {
         this.decision = decision;
     }
 

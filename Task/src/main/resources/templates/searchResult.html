@@ -1,18 +1,17 @@
 <head>
     <meta charset="UTF-8">
-    <title>Список клиентов</title>
+    <title>Страница результатов поиска</title>
 </head>
-<form method="GET" action="/index">
+<form method="GET" action="/search">
     <button type="submit">Назад</button>
 </form>
-<div>Список клиентов</div>
 <table border="1">
     <tr>
         <th>Имя</th>
         <th>Фамилия</th>
         <th>Отчество</th>
     </tr>
-    <tr th:each="peopleinfo : ${peopleinfos}">
+    <tr th:with="peopleinfo=${peopleinfos}">
         <td th:text="${peopleinfo.getName()}">
         <td th:text="${peopleinfo.getSurname()}">
         <td th:text="${peopleinfo.getMid_name()}">

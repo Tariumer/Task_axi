@@ -1,13 +1,12 @@
 package com.example.task.dao;
 
-import com.example.task.Peoples;
+import com.example.task.models.Peoples;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import com.example.task.util.HibernateSessionFactoryUtil;
 import org.springframework.stereotype.Repository;
 
-import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 import java.util.List;
 
 @Repository
@@ -43,6 +42,11 @@ public class PeopleDao {
 
     public Peoples findByName (String name) {
         return HibernateSessionFactoryUtil.getSessionFactory().openSession().get(Peoples.class, name);
+    }
+    public List<Peoples> findByPassport () {
+        Query query= HibernateSessionFactoryUtil.getSessionFactory().openSession().createSQLQuery("select p.passport,p.id,p.name,p.surname,p.mid_name,p.address,p.passport,p.family_status,p.number,p.organization,p.post,p.work_time,p.credit_sum,p.credit_id from People p").addEntity(Peoples.class);
+        List<Peoples> peoples= (List<Peoples>) query.getResultList();
+        return peoples;
     }
 
     public List<Peoples> findAll(){

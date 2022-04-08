@@ -1,7 +1,7 @@
 package com.example.task.service;
 
 import com.example.task.dao.PeopleDao;
-import com.example.task.Peoples;
+import com.example.task.models.Peoples;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -18,6 +18,11 @@ public class PeopleService {
     public Peoples findPeople(int id)
     {
         return peopleDao.findById(id);
+    }
+
+    public List<Peoples> findPeoplePass()
+    {
+        return peopleDao.findByPassport();
     }
 
     public void savePeople(Peoples people)

@@ -1,6 +1,7 @@
 package com.example.task.util;
 
-import com.example.task.Peoples;
+import com.example.task.models.Peoples;
+import com.example.task.models.CreditRequests;
 
 import org.hibernate.SessionFactory;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
@@ -16,6 +17,7 @@ public class HibernateSessionFactoryUtil {
             try {
                 Configuration configuration = new Configuration().configure();
                 configuration.addAnnotatedClass(Peoples.class);
+                configuration.addAnnotatedClass(CreditRequests.class);
                 StandardServiceRegistryBuilder builder = new StandardServiceRegistryBuilder().applySettings(configuration.getProperties());
                 sessionFactory = configuration.buildSessionFactory(builder.build());
 

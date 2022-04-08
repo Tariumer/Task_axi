@@ -1,4 +1,6 @@
-package com.example.task;
+package com.example.task.models;
+
+import com.example.task.models.CreditRequests;
 
 import javax.persistence.*;
 import java.util.List;
@@ -25,8 +27,8 @@ public class Peoples {
 //    @OneToMany(mappedBy = "people",cascade = CascadeType.ALL,orphanRemoval = true)
     @OneToOne(orphanRemoval = true)
     @JoinColumn(name = "credit_id",referencedColumnName = "id")
-    private Credit_requests credit_requests;
-//    private List<Credit_requests> requests;
+    private CreditRequests creditRequests;
+//    private List<CreditRequests> requests;
 
     public Peoples() {
     }
@@ -141,11 +143,11 @@ public class Peoples {
         this.id = id;
     }
 
-    public Credit_requests getCredit_requests() {
-        return credit_requests;
+    public CreditRequests getCreditRequests() {
+        return creditRequests;
     }
     public String getCreditStat(){
-        Credit_requests creditRequests=getCredit_requests();
+        CreditRequests creditRequests=getCreditRequests();
         if(creditRequests.getDecision())
         {
             return "Одобрено";
@@ -154,7 +156,7 @@ public class Peoples {
             return "Отклонено";
     }
 
-    public void setCredit_requests(Credit_requests credit_requests) {
-        this.credit_requests = credit_requests;
+    public void setCreditRequests(CreditRequests CreditRequests) {
+        this.creditRequests = CreditRequests;
     }
 }
