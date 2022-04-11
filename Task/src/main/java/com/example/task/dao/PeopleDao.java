@@ -44,7 +44,29 @@ public class PeopleDao {
         return HibernateSessionFactoryUtil.getSessionFactory().openSession().get(Peoples.class, name);
     }
     public List<Peoples> findByPassport () {
-        Query query= HibernateSessionFactoryUtil.getSessionFactory().openSession().createSQLQuery("select distinct on (p.passport) p.id,p.name,p.surname,p.mid_name,p.address,p.family_status,p.number,p.organization,p.post,p.work_time,p.credit_sum,p.credit_id from People p").addEntity(Peoples.class);
+        Query query= HibernateSessionFactoryUtil.getSessionFactory().openSession().createSQLQuery("select distinct on (p.passport) p.id,p.name,p.surname,p.mid_name,p.passport,p.address,p.family_status,p.number,p.organization,p.post,p.work_time,p.credit_sum,p.credit_id from People p").addEntity(Peoples.class);
+        List<Peoples> peoples= (List<Peoples>) query.getResultList();
+        return peoples;
+    }
+    public List<Peoples> findByAll (String name,String surname,String mid_name,String number, String passport) {
+        Query query= HibernateSessionFactoryUtil.getSessionFactory().openSession().createSQLQuery("select * from People p where p.name=:name and p.surname=:surname and p.mid_name=:mid_name and p.number=:number and p.passport=:passport").addEntity(Peoples.class).setParameter("name",name).setParameter("surname",surname).setParameter("mid_name",mid_name).setParameter("number",number).setParameter("passport",passport);
+        List<Peoples> peoples= (List<Peoples>) query.getResultList();
+        return peoples;
+    }
+
+    public List<Peoples> findByFIO (String name,String surname,String mid_name) {
+        Query query= HibernateSessionFactoryUtil.getSessionFactory().openSession().createSQLQuery("select * from People p where p.name=:name and p.surname=:surname and p.mid_name=:mid_name").addEntity(Peoples.class).setParameter("name",name).setParameter("surname",surname).setParameter("mid_name",mid_name);
+        List<Peoples> peoples= (List<Peoples>) query.getResultList();
+        return peoples;
+    }
+
+    public List<Peoples> findByOnePass (String passport) {
+        Query query= HibernateSessionFactoryUtil.getSessionFactory().openSession().createSQLQuery("select * from People p where p.passport=:passport").addEntity(Peoples.class).setParameter("passport",passport);
+        List<Peoples> peoples= (List<Peoples>) query.getResultList();
+        return peoples;
+    }
+    public List<Peoples> findByPhone (String number) {
+        Query query= HibernateSessionFactoryUtil.getSessionFactory().openSession().createSQLQuery("select * from People p where p.number=:number").addEntity(Peoples.class).setParameter("number",number);
         List<Peoples> peoples= (List<Peoples>) query.getResultList();
         return peoples;
     }

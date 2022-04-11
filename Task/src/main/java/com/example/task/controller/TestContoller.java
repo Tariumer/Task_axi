@@ -21,8 +21,7 @@ public class TestContoller {
     @GetMapping(value = "/requests")
     public @ResponseBody List<Peoples>
     test() {
-         List lst = peopleService.peopleDao.findByPassport();
-        System.out.println(lst.get(0));
+         List<Peoples> lst = peopleService.peopleDao.findByOnePass("8473879899");
         return lst;
     }
 }

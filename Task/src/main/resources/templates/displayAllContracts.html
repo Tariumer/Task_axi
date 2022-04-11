@@ -22,6 +22,7 @@
         <th>Статус заявки</th>
         <th>Срок выдачи кредита</th>
         <th>Сумма кредита</th>
+        <th>Статус подписи</th>
         <th>Дата подписания</th>
     </tr>
     <tr th:each="peopleinfo : ${peopleinfos}">
@@ -39,6 +40,7 @@
         <td th:text="${peopleinfo.getCreditStat()}">
         <td th:text="${peopleinfo.getCreditRequests().getTime()}">
         <td th:text="${peopleinfo.getCreditRequests().getCredit()}">
+        <td th:text="${peopleinfo.getSignatureStat()}">
         <td th:text="${peopleinfo.getCreditRequests().getDate()}">
     </tr>
 </table>

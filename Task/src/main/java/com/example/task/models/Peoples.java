@@ -146,6 +146,7 @@ public class Peoples {
     public CreditRequests getCreditRequests() {
         return creditRequests;
     }
+
     public String getCreditStat(){
         CreditRequests creditRequests=getCreditRequests();
         if(creditRequests.getDecision())
@@ -154,6 +155,16 @@ public class Peoples {
         }
         else
             return "Отклонено";
+    }
+
+    public String getSignatureStat(){
+        CreditRequests creditRequests=getCreditRequests();
+        if(creditRequests.getStatus())
+        {
+            return "Подписано";
+        }
+        else
+            return "Не подписано";
     }
 
     public void setCreditRequests(CreditRequests CreditRequests) {

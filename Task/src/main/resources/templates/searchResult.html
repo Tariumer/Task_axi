@@ -10,10 +10,12 @@
         <th>Имя</th>
         <th>Фамилия</th>
         <th>Отчество</th>
+        <th>Статус заявки</th>
     </tr>
-    <tr th:with="peopleinfo=${peopleinfos}">
+    <tr th:each="peopleinfo:${peopleinfos}">
         <td th:text="${peopleinfo.getName()}">
         <td th:text="${peopleinfo.getSurname()}">
         <td th:text="${peopleinfo.getMid_name()}">
+        <td th:text="${peopleinfo.getCreditStat()}">
     </tr>
 </table>

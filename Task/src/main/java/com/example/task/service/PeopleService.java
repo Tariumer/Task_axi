@@ -25,6 +25,24 @@ public class PeopleService {
         return peopleDao.findByPassport();
     }
 
+    public List<Peoples> findByAllParam(String name,String surname,String mid_name,String number,String passport)
+    {
+        return peopleDao.findByAll(name,surname,mid_name,number,passport);
+    }
+
+    public List<Peoples> findPeopleByFIO(String name,String surname,String mid_name)
+    {
+        return peopleDao.findByFIO(name,surname,mid_name);
+    }
+    public List<Peoples> findPeopleByPassport(String passport)
+    {
+        return peopleDao.findByOnePass(passport);
+    }
+    public List<Peoples> findPeopleByPhone(String number)
+    {
+        return peopleDao.findByPhone(number);
+    }
+
     public void savePeople(Peoples people)
     {
         peopleDao.save(people);
